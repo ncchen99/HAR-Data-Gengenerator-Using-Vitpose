@@ -79,6 +79,7 @@ def main():
 
     # process each image
     for i in range(len(img_keys)):
+        print(f'Processing {i} / {len(img_keys)}')
         # get bounding box annotations
         image_id = img_keys[i]
         image = coco.loadImgs(image_id)[0]
@@ -112,6 +113,8 @@ def main():
             os.makedirs(args.out_img_root, exist_ok=True)
             out_file = os.path.join(args.out_img_root, f'vis_{i}.jpg')
 
+        print("pose_results:", pose_results, "returned_outputs:", returned_outputs)
+        
         vis_pose_result(
             pose_model,
             image_name,
