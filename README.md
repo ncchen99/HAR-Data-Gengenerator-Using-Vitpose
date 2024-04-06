@@ -1,4 +1,49 @@
-<h1 align="left">ViTPose: Simple Vision Transformer Baselines for Human Pose Estimation<a href="https://arxiv.org/abs/2204.12484"><img src="https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg" ></a> </h1> 
+## 後空翻動作矯正 - 生成訓練資料的 Vitpose 程式
+
+### 環境資訊
+
+```
+             /////////////                mcnlab@pop-os 
+         /////////////////////            ------------- 
+      ///////*767////////////////         OS: Pop!_OS 22.04 LTS x86_64 
+    //////7676767676*//////////////       Host: Precision Tower 5810 
+   /////76767//7676767//////////////      Kernel: 6.6.6-76060606-generic 
+  /////767676///*76767///////////////     Uptime: 6 days, 17 hours, 2 mins 
+ ///////767676///76767.///7676*///////    Packages: 2438 (dpkg) 
+/////////767676//76767///767676////////   Shell: zsh 5.8.1 
+//////////76767676767////76767/////////   Resolution: 1920x1080 
+///////////76767676//////7676//////////   Terminal: node 
+////////////,7676,///////767///////////   CPU: Genuine Intel 0000 (36) @ 3.000GHz 
+/////////////*7676///////76////////////   GPU: NVIDIA TITAN RTX 
+///////////////7676////////////////////   Memory: 3256MiB / 64215MiB 
+ ///////////////7676///767////////////
+  //////////////////////'////////////                             
+   //////.7676767676767676767,//////                              
+    /////767676767676767676767/////
+      ///////////////////////////
+         /////////////////////
+             /////////////
+
+```
+
+### 套件資訊
+
+```
+CUDA version: 10.2
+ffmpeg version: 6.1.1 
+Conda version: 22.9.0
+OpenCV version: 4.9.0
+```
+
+先安裝這些軟體！
+
+### 建立環境
+
+```bash=
+conda env create -f environment.yml
+```
+
+<h1 align="left">ViTPose: Simple Vision Transformer Baselines for Human Pose Estimation<a href="https://arxiv.org/abs/2204.12484"><img src="https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg" ></a> </h1>
 
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/vitpose-simple-vision-transformer-baselines/pose-estimation-on-coco-test-dev)](https://paperswithcode.com/sota/pose-estimation-on-coco-test-dev?p=vitpose-simple-vision-transformer-baselines)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/vitpose-simple-vision-transformer-baselines/pose-estimation-on-aic)](https://paperswithcode.com/sota/pose-estimation-on-aic?p=vitpose-simple-vision-transformer-baselines)
@@ -30,7 +75,7 @@ This branch contains the pytorch implementation of <a href="https://arxiv.org/ab
 
 ## MAE Pre-trained model
 
-- The small size MAE pre-trained model can be found in [Onedrive](https://1drv.ms/u/s!AimBgYV7JjTlgccZeiFjh4DJ7gjYyg?e=iTMdMq). 
+- The small size MAE pre-trained model can be found in [Onedrive](https://1drv.ms/u/s!AimBgYV7JjTlgccZeiFjh4DJ7gjYyg?e=iTMdMq).
 - The base, large, and huge pre-trained models using MAE can be found in the [MAE official repo](https://github.com/facebookresearch/mae).
 
 ## Results from this repo on MS COCO val set (single-task training)
@@ -55,12 +100,12 @@ Using detection results from a detector that obtains 56 mAP on person. The confi
 | ViTPose-L | MAE | 256x192 | 78.2 | 83.4 | [config](configs/body/2d_kpt_sview_rgb_img/topdown_heatmap/coco/ViTPose_large_simple_coco_256x192.py) | [log](logs/vitpose-l-simple.log.json) | [Onedrive](https://1drv.ms/u/s!AimBgYV7JjTlgSVS6DP2LmKwZ3sm?e=MmCvDT) |
 | ViTPose-H | MAE | 256x192 | 78.9 | 84.0 | [config](configs/body/2d_kpt_sview_rgb_img/topdown_heatmap/coco/ViTPose_huge_simple_coco_256x192.py) | [log](logs/vitpose-h-simple.log.json) | [Onedrive](https://1drv.ms/u/s!AimBgYV7JjTlgSbHyN2mjh2n2LyG?e=y0FgMK) |
 
-
 ## Results with multi-task training
 
 **Note** \* There may exist duplicate images in the crowdpose training set and the validation images in other datasets, as discussed in [issue #24](https://github.com/ViTAE-Transformer/ViTPose/issues/24). Please be careful when using these models for evaluation. We provide the results without the crowpose dataset for reference.
 
 ### Human datasets (MS COCO, AIC, MPII, CrowdPose)
+>
 > Results on MS COCO val set
 
 Using detection results from a detector that obtains 56 mAP on person. Note the configs here are only for evaluation.
@@ -78,7 +123,6 @@ Using detection results from a detector that obtains 56 mAP on person. Note the 
 | **ViTPose+-B** | COCO+AIC+MPII+AP10K+APT36K+WholeBody | 256x192 | 77.0 | 82.6 | [config](configs/body/2d_kpt_sview_rgb_img/topdown_heatmap/coco/vitPose+_base_coco+aic+mpii+ap10k+apt36k+wholebody_256x192_udp.py)  | [log](https://1drv.ms/u/s!AimBgYV7JjTlgccjj9lgPTlkGT1HTw?e=OlS5zv) \| [Onedrive](https://1drv.ms/u/s!AimBgYV7JjTlgcckRZk1bIAuRa_E1w?e=ylDB2G) |
 | **ViTPose+-L** | COCO+AIC+MPII+AP10K+APT36K+WholeBody | 256x192 | 78.6 | 84.1 | [config](configs/body/2d_kpt_sview_rgb_img/topdown_heatmap/coco/vitPose+_large_coco+aic+mpii+ap10k+apt36k+wholebody_256x192_udp.py) | [log](https://1drv.ms/u/s!AimBgYV7JjTlgccp7HJf4QMeQQpeyA?e=JagPNt) \| [Onedrive](https://1drv.ms/u/s!AimBgYV7JjTlgccs1SNFUGSTsmRJ8w?e=a9zKwZ) |
 | **ViTPose+-H** | COCO+AIC+MPII+AP10K+APT36K+WholeBody | 256x192 | 79.4 | 84.8 | [config](configs/body/2d_kpt_sview_rgb_img/topdown_heatmap/coco/vitPose+_huge_coco+aic+mpii+ap10k+apt36k+wholebody_256x192_udp.py) | [log](https://1drv.ms/u/s!AimBgYV7JjTlgcclxZOlwRJdqpIIjA?e=nFQgVC) \| [Onedrive](https://1drv.ms/u/s!AimBgYV7JjTlgccoXv8rCUgVe7oD9Q?e=ZBw6gR) |
-
 
 > Results on OCHuman test set
 
@@ -115,7 +159,6 @@ Using groundtruth bounding boxes. Note the configs here are only for evaluation.
 | **ViTPose+-B** | COCO+AIC+MPII+AP10K+APT36K+WholeBody | 256x192 | 92.8 | [config](configs/body/2d_kpt_sview_rgb_img/topdown_heatmap/mpii/ViTPose_base_mpii_256x192.py)  | [log](https://1drv.ms/u/s!AimBgYV7JjTlgccjj9lgPTlkGT1HTw?e=OlS5zv) \| [Onedrive](https://1drv.ms/u/s!AimBgYV7JjTlgcckRZk1bIAuRa_E1w?e=ylDB2G) |
 | **ViTPose+-L** | COCO+AIC+MPII+AP10K+APT36K+WholeBody | 256x192 | 94.0 | [config](configs/body/2d_kpt_sview_rgb_img/topdown_heatmap/mpii/ViTPose_large_mpii_256x192.py) | [log](https://1drv.ms/u/s!AimBgYV7JjTlgccp7HJf4QMeQQpeyA?e=JagPNt) \| [Onedrive](https://1drv.ms/u/s!AimBgYV7JjTlgccs1SNFUGSTsmRJ8w?e=a9zKwZ) |
 | **ViTPose+-H** | COCO+AIC+MPII+AP10K+APT36K+WholeBody | 256x192 | 94.2 | [config](configs/body/2d_kpt_sview_rgb_img/topdown_heatmap/mpii/ViTPose_huge_mpii_256x192.py) | [log](https://1drv.ms/u/s!AimBgYV7JjTlgcclxZOlwRJdqpIIjA?e=nFQgVC) \| [Onedrive](https://1drv.ms/u/s!AimBgYV7JjTlgccoXv8rCUgVe7oD9Q?e=ZBw6gR) |
-
 
 > Results on AI Challenger test set
 
@@ -191,13 +234,14 @@ Using YOLOv3 human detector. Note the configs here are only for evaluation.
 
 > [2022-05-06] Upload the logs for the base, large, and huge models!
 
-> [2022-04-27] Our ViTPose with ViTAE-G obtains 81.1 AP on COCO test-dev set! 
+> [2022-04-27] Our ViTPose with ViTAE-G obtains 81.1 AP on COCO test-dev set!
 
 > Applications of ViTAE Transformer include: [image classification](https://github.com/ViTAE-Transformer/ViTAE-Transformer/tree/main/Image-Classification) | [object detection](https://github.com/ViTAE-Transformer/ViTAE-Transformer/tree/main/Object-Detection) | [semantic segmentation](https://github.com/ViTAE-Transformer/ViTAE-Transformer/tree/main/Semantic-Segmentation) | [animal pose segmentation](https://github.com/ViTAE-Transformer/ViTAE-Transformer/tree/main/Animal-Pose-Estimation) | [remote sensing](https://github.com/ViTAE-Transformer/ViTAE-Transformer-Remote-Sensing) | [matting](https://github.com/ViTAE-Transformer/ViTAE-Transformer-Matting) | [VSA](https://github.com/ViTAE-Transformer/ViTAE-VSA) | [ViTDet](https://github.com/ViTAE-Transformer/ViTDet)
 
 ## Usage
 
 We use PyTorch 1.9.0 or NGC docker 21.06, and mmcv 1.3.9 for the experiments.
+
 ```bash
 git clone https://github.com/open-mmlab/mmcv.git
 cd mmcv
@@ -210,6 +254,7 @@ pip install -v -e .
 ```
 
 After install the two repos, install timm and einops, i.e.,
+
 ```bash
 pip install timm==0.4.9 einops
 ```
@@ -224,7 +269,7 @@ bash tools/dist_train.sh <Config PATH> <NUM GPUs> --cfg-options model.pretrained
 python -m torch.distributed.launch --nnodes <Num Machines> --node_rank <Rank of Machine> --nproc_per_node <GPUs Per Machine> --master_addr <Master Addr> --master_port <Master Port> tools/train.py <Config PATH> --cfg-options model.pretrained=<Pretrained PATH> --launcher pytorch --seed 0
 ```
 
-To test the pretrained models performance, please run 
+To test the pretrained models performance, please run
 
 ```bash
 bash tools/dist_test.sh <Config PATH> <Checkpoint PATH> <NUM GPUs>
@@ -247,6 +292,7 @@ This repo current contains modifications including:
 - [x] Upload multi-task training config
 
 ## Acknowledge
+
 We acknowledge the excellent implementation from [mmpose](https://github.com/open-mmlab/mmdetection) and [MAE](https://github.com/facebookresearch/mae).
 
 ## Citing ViTPose
@@ -275,6 +321,7 @@ For ViTPose+
 ```
 
 For ViTAE and ViTAEv2, please refer to:
+
 ```
 @article{xu2021vitae,
   title={Vitae: Vision transformer advanced by exploring intrinsic inductive bias},
