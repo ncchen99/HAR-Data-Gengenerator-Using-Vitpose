@@ -169,3 +169,11 @@ data/
 
 # models
 pretrained_models/
+
+# MacOS
+.DS_Store
+*.DS_Store
+*/*.DS_Store
+*/*/*.DS_Store
+*/*/*/*.DS_Store
+*/*/*/*/*.DS_Store
