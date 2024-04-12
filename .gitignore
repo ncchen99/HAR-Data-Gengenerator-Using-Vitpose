@@ -163,9 +163,9 @@ imgs/
 
 # datas
 
-poses_videos_out_train/
-poses_videos_out_test/
-data/
+# poses_videos_out_train/
+# poses_videos_out_test/
+# data/
 
 # models
 pretrained_models/
