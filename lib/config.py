@@ -9,7 +9,7 @@ class Config():
         self.video_path = input_video
         self.device = 'cuda:0'
         self.bbox_thr = 0.3
-        self.kpt_thr = 0.3
+        self.kpt_thr = 0.001
         self.det_cat_id = 1
         self.radius = 4
         self.thickness = 1

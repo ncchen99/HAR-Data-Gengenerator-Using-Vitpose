@@ -6,8 +6,8 @@ from lib.vitpose_preprocessor import VitPosePreprocessor
 
 #@title Functions to run pose estimation with Vitpose
 
-IMAGES_ROOT = "data"
-videos_in_train_folder = os.path.join(IMAGES_ROOT, 'train')
+VIDEOS_ROOT = "BackFlip_Data"
+videos_in_train_folder = os.path.join(VIDEOS_ROOT, 'train')
 videos_out_train_folder = 'poses_videos_out_train'
 csvs_out_train_folder = 'poses_videos_out_train'
 
@@ -20,7 +20,7 @@ preprocessor = VitPosePreprocessor(
 preprocessor.process(per_pose_class_limit=None)
 
 
-videos_in_test_folder = os.path.join(IMAGES_ROOT, 'test')
+videos_in_test_folder = os.path.join(VIDEOS_ROOT, 'test')
 videos_out_test_folder = 'poses_videos_out_test'
 csvs_out_test_folder = 'poses_videos_out_test'
 
