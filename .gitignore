@@ -177,3 +177,5 @@ pretrained_models/
 */*/*.DS_Store
 */*/*/*.DS_Store
 */*/*/*/*.DS_Store
+
+*.mp4
