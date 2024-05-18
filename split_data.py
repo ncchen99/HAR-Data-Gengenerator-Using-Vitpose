@@ -3,7 +3,7 @@ import random
 import shutil
 
 # 設定根目錄
-root_dir = './Backflip_Dataset'  # 請將根目錄設定為包含所有類別資料夾的父目錄
+root_dir = './all'  # 請將根目錄設定為包含所有類別資料夾的父目錄
 
 # 設定切分後的目標資料目錄
 train_dir = './data/train'
