@@ -40,8 +40,8 @@ for pos_category, neg_category in category_pairs2:
     # 確認兩個路徑都是資料夾
     if os.path.isdir(pos_class_path) and os.path.isdir(neg_class_path):
         # 取得正類別和負類別資料夾下的所有影片檔案
-        pos_files = [f for f in os.listdir(pos_class_path) if f.endswith('.mp4') or f.endswith('.mov')]
-        neg_files = [f for f in os.listdir(neg_class_path) if f.endswith('.mp4') or f.endswith('.mov')]
+        pos_files = [f for f in os.listdir(pos_class_path) if f.endswith('.mp4') or f.endswith('.MOV') or f.endswith('.mov')]
+        neg_files = [f for f in os.listdir(neg_class_path) if f.endswith('.mp4') or f.endswith('.MOV') or f.endswith('.mov')]
 
         # 隨機打亂影片順序
         random.shuffle(pos_files)

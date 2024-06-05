@@ -27,7 +27,7 @@ def find_videos_and_csvs(root_folder):
             continue
         if os.path.isdir(category_path):
             # videos = [f for f in os.listdir(category_path) if f.endswith(video_extensions)]
-            csv_paths = [os.path.join("poses_videos_out_train/all-data", f + ".csv") for f in os.listdir(category_path) if f.endswith(video_extensions)]
+            csv_paths = [os.path.join("poses_videos_out_train/all-data", f.lower() + ".csv") for f in os.listdir(category_path) if f.endswith(video_extensions)]
             category_data[category] = {
                 # 'videos': videos,
                 'csv_path': csv_paths
@@ -36,6 +36,9 @@ def find_videos_and_csvs(root_folder):
     return category_data
 
 def combine_csvs(category, csv_paths, all_info_table, header_csv, output_folder):
+    # if output folder does not exist, create it
+    if not os.path.exists(output_folder):
+        os.makedirs(output_folder)
     combined_df = pd.read_csv(header_csv, nrows=0)
     info_df = pd.DataFrame([[category, 0, len(csv_paths), ""]], columns=["a", "b", "c", "d"])
     
@@ -72,6 +75,8 @@ def main(root_folder, output_folder):
     print(f"Combined CSV saved to {output_csv}")
 
 if __name__ == "__main__":
-    root_folder = '/home/mcnlab/桌面/VitPose/ViTPose/Backflip_Dataset'  # 替換為你的根目錄路徑
-    output_csv = '/home/mcnlab/桌面/VitPose/ViTPose/data/'  # 替換為你想要輸出的 CSV 路徑
-    main(root_folder, output_csv)
+    train_folder = '/home/mcnlab/桌面/VitPose/ViTPose/data/train'  # 替換為你的根目錄路徑
+    test_folder = '/home/mcnlab/桌面/VitPose/ViTPose/data/test'  # 替換為你的根目錄路徑
+    output_csv = '/home/mcnlab/桌面/VitPose/ViTPose/out/'  # 替換為你想要輸出的 CSV 路徑
+    main(train_folder, output_csv)
+    main(test_folder, output_csv)

@@ -43,7 +43,7 @@ def merge_data_files(input_folder, output_folder):
 
 def main():
     # Define input and output folders for train and test
-    base_folder = 'data'  # Change this to your base folder path
+    base_folder = 'out'  # Change this to your base folder path
     folders = ['train', 'test']
     
     for folder in folders:
