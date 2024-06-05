@@ -54,8 +54,6 @@ def merge_csvs(category_data, all_info_csv_path ,header_csv, output_folder):
                 print(f"CSV for category {category} not found: {csv_path}")
         combined_df.to_csv(os.path.join(output_folder, f"{category}_data.csv"), index=False)
         info_df.to_csv(os.path.join(output_folder,f"{category}_info.csv"), index=False, header=False)
-      
-
     return combined_df
 
 def main(root_folder, output_folder):

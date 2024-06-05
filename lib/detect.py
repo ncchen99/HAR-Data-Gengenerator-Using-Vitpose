@@ -8,13 +8,13 @@ from mmpose.apis import (inference_top_down_pose_model, init_pose_model,
                          process_mmdet_results, vis_pose_result)
 from mmpose.datasets import DatasetInfo
 
-try:
-    from mmdet.apis import inference_detector, init_detector
-    has_mmdet = True
-except (ImportError, ModuleNotFoundError):
-    has_mmdet = False
+# try:
+from mmdet.apis import inference_detector, init_detector
+#     has_mmdet = True
+# except (ImportError, ModuleNotFoundError):
+#     has_mmdet = False
 
-assert has_mmdet, 'Please install mmdet to run the demo.'
+# assert has_mmdet, 'Please install mmdet to run the demo.'
 
 from lib.config import Config
 
@@ -74,6 +74,7 @@ def detect(input_video, out_video_path, csv_out_path=None):
 
     frame_index = 0
     result = []
+    
     while (cap.isOpened()):
         flag, img = cap.read()
         if not flag:

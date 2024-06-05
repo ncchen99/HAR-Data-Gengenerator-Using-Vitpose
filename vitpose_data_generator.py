@@ -6,7 +6,7 @@ from lib.vitpose_preprocessor import VitPosePreprocessor
 
 #@title Functions to run pose estimation with Vitpose
 
-VIDEOS_ROOT = "data"
+VIDEOS_ROOT = "/home/mcnlab/桌面/VitPose/ViTPose/Backflip_Dataset/"
 # videos_in_train_folder = os.path.join(VIDEOS_ROOT, 'train')
 videos_out_train_folder = 'poses_videos_out_train'
 csvs_out_train_folder = 'poses_videos_out_train'
